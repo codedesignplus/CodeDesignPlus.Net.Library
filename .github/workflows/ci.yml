@@ -19,7 +19,6 @@ jobs:
       contents: write
       packages: write
       repository-projects: write
-
     steps:
       - name: Checkout
         id: checkout
@@ -101,9 +100,7 @@ jobs:
 
       - name: Push GitHub
         if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
-        run: dotnet nuget push "*.nupkg" --source https://nuget.pkg.github.com/codedesignplus/index.json --api-key ${GITHUB_TOKEN}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        run: dotnet nuget push "*.nupkg" --source https://nuget.pkg.github.com/codedesignplus/index.json --api-key ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Push tag
         id: push_tag
