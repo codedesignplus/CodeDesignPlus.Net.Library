@@ -89,7 +89,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: Pack
-        if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
+        #if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
         run: dotnet pack --configuration Release /p:Version=${{steps.version.outputs.new-version}} --output .
 
       - name: Push Nuget
