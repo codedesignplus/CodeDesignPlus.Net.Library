@@ -100,7 +100,9 @@ jobs:
 
       - name: Push GitHub
         #if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
-        run: dotnet nuget push "*.nupkg" --source https://nuget.pkg.github.com/codedesignplus/index.json --api-key ${{ secrets.GITHUB_TOKEN }} 
+        run: |
+          dotnet nuget add source --username codedesignplus --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/codedesignplus/index.json"
+          dotnet nuget push "*.nupkg"
 
       - name: Push tag
         id: push_tag
