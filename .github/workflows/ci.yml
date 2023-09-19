@@ -89,17 +89,17 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: Pack
-        #if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
+        if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
         run: dotnet pack --configuration Release /p:Version=${{steps.version.outputs.new-version}} --output .
 
       - name: Push Nuget
-        #if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
+        if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
         run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_TOKEN}
         env:
           NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
 
       - name: Push GitHub
-        #if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
+        if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
         run: |
           dotnet nuget push "*.nupkg" --source https://nuget.pkg.github.com/codedesignplus/index.json --api-key ${{ secrets.GH_PACKAGE_TOKEN }} 
 
