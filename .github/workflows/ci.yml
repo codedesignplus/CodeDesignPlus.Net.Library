@@ -42,7 +42,7 @@ jobs:
 
       - name: Version
         id: version
-        uses: codedesignplus/semver-git-version@v0.1.2
+        uses: codedesignplus/semver-git-version@v0.1.4
         with:
           folder: ${{github.workspace}}
           release-branch: "main"
@@ -72,7 +72,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectVersion=${{ steps.version.outputs.version }}
+            -Dsonar.projectVersion=${{ steps.version.outputs.new-version-prefix }}
             -Dsonar.organization=codedesignplus
             -Dsonar.projectKey=CodeDesignPlus.Net.Library.Key
             -Dsonar.projectName=CodeDesignPlus.Net.Library
@@ -91,7 +91,7 @@ jobs:
 
       - name: Pack
         if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
-        run: dotnet pack --configuration Release /p:Version=${{steps.version.outputs.version}} --output .
+        run: dotnet pack --configuration Release /p:Version=${{steps.version.outputs.new-version}} --output .
 
       - name: Push Nuget
         if: env.IS_RELEASE == 'true' || env.IS_RC == 'true' || env.IS_BETA == 'true'
