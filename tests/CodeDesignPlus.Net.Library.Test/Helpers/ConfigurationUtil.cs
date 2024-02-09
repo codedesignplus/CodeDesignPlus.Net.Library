@@ -1,12 +1,15 @@
-﻿namespace CodeDesignPlus.Net.Library.Test.Helpers;
+﻿using System.Text.Json;
+using CodeDesignPlus.Net.Library.Abstractions.Options;
+
+namespace CodeDesignPlus.Net.Library.Test.Helpers;
 
 public static class ConfigurationUtil
 {
     public static readonly LibraryOptions LibraryOptions = new()
     {
         Enable = true,
-        Name = nameof(Library.Options.LibraryOptions.Name),
-        Email = $"{nameof(Library.Options.LibraryOptions.Name)}@codedesignplus.com"
+        Name = nameof(Abstractions.Options.LibraryOptions.Name),
+        Email = $"{nameof(Abstractions.Options.LibraryOptions.Name)}@codedesignplus.com"
     };
 
     public static IConfiguration GetConfiguration()

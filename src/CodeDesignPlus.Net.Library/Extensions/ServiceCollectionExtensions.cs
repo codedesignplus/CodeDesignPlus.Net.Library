@@ -1,6 +1,6 @@
 ﻿using CodeDesignPlus.Net.Library.Abstractions;
 using CodeDesignPlus.Net.Library.Exceptions;
-using CodeDesignPlus.Net.Library.Options;
+using CodeDesignPlus.Net.Library.Abstractions.Options;
 using CodeDesignPlus.Net.Library.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

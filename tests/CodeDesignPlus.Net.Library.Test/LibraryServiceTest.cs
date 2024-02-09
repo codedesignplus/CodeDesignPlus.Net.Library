@@ -1,4 +1,4 @@
-﻿using CodeDesignPlus.Net.Library.Options;
+﻿using CodeDesignPlus.Net.Library.Abstractions.Options;
 using CodeDesignPlus.Net.Library.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
