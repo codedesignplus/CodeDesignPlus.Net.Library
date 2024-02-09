@@ -1,4 +1,6 @@
-﻿namespace CodeDesignPlus.Net.Library.Test.Options;
+﻿using CodeDesignPlus.Net.Library.Abstractions.Options;
+
+namespace CodeDesignPlus.Net.Library.Test.Options;
 
 public class LibraryOptionsTest
 {

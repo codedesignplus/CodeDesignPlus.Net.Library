@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CodeDesignPlus.Net.Library.Options;
+namespace CodeDesignPlus.Net.Library.Abstractions.Options;
 
 /// <summary>
 /// Options to setting of the Library

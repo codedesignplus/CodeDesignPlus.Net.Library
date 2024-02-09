@@ -1,4 +1,4 @@
-﻿using CodeDesignPlus.Net.Library.Options;
+﻿using CodeDesignPlus.Net.Library.Abstractions.Options;
 
 namespace CodeDesignPlus.Net.Library.Services;
 
